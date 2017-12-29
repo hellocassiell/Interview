@@ -1,3 +1,12 @@
+## 盒模型
+在标准模式下，一个块的总宽度=width+margin(左右)+padding(左右)+border(左右)
+在怪异模式下，一个块的总宽度=width+margin（左右）（既width已经包含了padding和border值）
+#### box-sizing
+```
+box-sizing:content-box || border-box || inherit;
+```
+当设置为box-sizing:border-box时，将采用怪异模式解析计算
+
 ## CSS选择器
 1 *通用选择器：选择所有元素，不参与计算优先级，兼容性IE6+
 2 #X id选择器：选择id值为X的元素，兼容性：IE6+
