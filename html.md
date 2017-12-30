@@ -44,14 +44,14 @@ article::before {
 
 ## [meta标签](https://segmentfault.com/a/1190000004279791)
 **元数据**，是用于描述数据的数据。它不会显示在页面上，但是机器却可以识别。
-```
-meta常用于定义页面的说明，关键字，最后修改日期，和其它的元数据。这些元数据将服务于浏览器（如何布局或重载页面），搜索引擎和其它网络服务。
-```
+
+> meta常用于定义页面的说明，关键字，最后修改日期，和其它的元数据。这些元数据将服务于浏览器（如何布局或重载页面），搜索引擎和其它网络服务。
+
 1. name属性
 ```
 <meta name="参数" content="具体的描述">
 ```
-可选参数
+可选常用参数：
 - keywords  用于告诉搜索引擎，你网页的关键字
 - description  用于告诉搜索引擎，你网站的主要内容
 - viewport  移动端的窗口
@@ -61,4 +61,45 @@ meta常用于定义页面的说明，关键字，最后修改日期，和其它�
 - copyright  用于标注版权信息
 - revisit-after  搜索引擎爬虫重访时间
 - renderer  双核浏览器渲染方式
+
 2. http-equiv属性
+相当于HTTP的作用，比如说定义一些HTTP参数。
+```
+<meta http-equiv="参数" content="具体的描述">
+```
+可选常用参数：
+- content-Type(设定网页字符集)(推荐使用HTML5的方式)
+```
+<meta http-equiv="content-Type" content="text/html;charset=utf-8">  //旧的HTML，不推荐
+
+<meta charset="utf-8"> //HTML5设定网页字符集的方式，推荐使用UTF-8
+```
+-  X-UA-Compatible(浏览器采取何种版本渲染当前页面)
+一般都设置为最新模式:
+```
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> //指定IE和Chrome使用最新版本渲染当前页面
+```
+- [cache-control](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=zh-cn#cache-control)(指定请求和响应遵循的缓存机制)
+指导浏览器如何缓存某个响应以及缓存多长时间
+```
+<meta http-equiv="cache-control" content="no-cache">
+```
+禁止百度自动转码
+```
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+```
+- expires(网页到期时间)
+```
+<meta http-equiv="expires" content="Sunday 26 October 2016 01:00 GMT" />
+```
+- refresh(自动刷新并指向某页面)
+```
+<meta http-equiv="refresh" content="2；URL=http://www.baidu.com/"> //意思是2秒后跳转到百度
+```
+- Set-Cookie(cookie设定)
+如果网页过期。那么这个网页存在本地的cookies也会被自动删除。
+```
+<meta http-equiv="Set-Cookie" content="name, date"> //格式
+
+<meta http-equiv="Set-Cookie" content="User=Lxxyx; path=/; expires=Sunday, 10-Jan-16 10:00:00 GMT"> //具体范例
+```
