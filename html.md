@@ -41,3 +41,24 @@ article::before {
   content: attr(data-parent);
 }
 ```
+
+## [meta标签](https://segmentfault.com/a/1190000004279791)
+**元数据**，是用于描述数据的数据。它不会显示在页面上，但是机器却可以识别。
+```
+meta常用于定义页面的说明，关键字，最后修改日期，和其它的元数据。这些元数据将服务于浏览器（如何布局或重载页面），搜索引擎和其它网络服务。
+```
+1. name属性
+```
+<meta name="参数" content="具体的描述">
+```
+可选参数
+- keywords  用于告诉搜索引擎，你网页的关键字
+- description  用于告诉搜索引擎，你网站的主要内容
+- viewport  移动端的窗口
+-  robots  定义搜索引擎爬虫的索引方式
+- author  作者
+-  generator 网页制作软件
+- copyright  用于标注版权信息
+- revisit-after  搜索引擎爬虫重访时间
+- renderer  双核浏览器渲染方式
+2. http-equiv属性
