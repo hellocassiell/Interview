@@ -25,3 +25,19 @@ XHTML 是更严谨更纯净的 HTML 版本。
 - XHTML 元素必须被关闭。
 - 标签名必须用小写字母。
 - XHTML 文档必须拥有根元素。
+
+## HTML5 data-* 自定义属性
+**进行数据存放**
+解决自定义属性混乱无管理的现状
+
+为div添加了一个data-my的自定义属性
+```
+var test = document.getElementById('test');
+        test.dataset.my = 'Byron';
+```
+使用函数attr()来显示data-parent的内容
+```
+article::before {
+  content: attr(data-parent);
+}
+```
