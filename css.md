@@ -46,3 +46,12 @@ link可以通过rel="alternate stylesheet"指定候选样式
 浏览器对link支持早于@import，可以使用@import对老浏览器隐藏样式
 @import必须在样式规则之前，可以在css文件中引用其他文件
 总体来说：link优于@import
+
+## display: block;和display: inline;的区别
+block元素特点：
+
+1.处于常规流中时，如果width没有设置，会自动填充满父容器 2.可以应用margin/padding 3.在没有设置高度的情况下会扩展高度以包含常规流中的子元素 4.处于常规流中时布局时在前后元素位置之间（独占一个水平空间） 5.忽略vertical-align
+
+inline元素特点
+
+1.水平方向上根据direction依次布局 2.不会在元素前后进行换行 3.受white-space控制 4.margin/padding在竖直方向上无效，水平方向上有效 5.width/height属性对非替换行内元素无效，宽度由元素内容决定 6.非替换行内元素的行框高由line-height确定，替换行内元素的行框高由height,margin,padding,border决定 6.浮动或绝对定位时会转换为block 7.vertical-align属性生效
