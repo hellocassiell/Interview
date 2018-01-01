@@ -26,4 +26,15 @@ box-sizing:content-box || border-box || inherit;
 3 修改常规流中元素的display通常会造成文档重排。修改visibility属性只会造成本元素的重绘。
 4 读屏器不会读取display: none;元素内容；会读取visibility: hidden;元素内容
 
+## css sprite
+概念：将多个小图片拼接到一个图片中。通过background-position和元素尺寸调节需要显示的背景图案。
 
+优点：
+
+减少HTTP请求数，极大地提高页面加载速度
+增加图片信息重复度，提高压缩比，减少图片大小
+更换风格方便，只需在一张或几张图片上修改颜色或样式即可实现
+缺点：
+
+图片合并麻烦
+维护麻烦，修改一个图片可能需要从新布局整个图片，样式
