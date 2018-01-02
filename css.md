@@ -55,3 +55,24 @@ block元素特点：
 inline元素特点
 
 1.水平方向上根据direction依次布局 2.不会在元素前后进行换行 3.受white-space控制 4.margin/padding在竖直方向上无效，水平方向上有效 5.width/height属性对非替换行内元素无效，宽度由元素内容决定 6.非替换行内元素的行框高由line-height确定，替换行内元素的行框高由height,margin,padding,border决定 6.浮动或绝对定位时会转换为block 7.vertical-align属性生效
+
+## PNG,GIF,JPG的区别及如何选
+参考资料： 选择正确的图片格式 GIF:
+
+8位像素，256色
+无损压缩
+支持简单动画
+支持boolean透明
+适合简单动画
+JPEG：
+
+颜色限于256
+有损压缩
+可控制压缩质量
+不支持透明
+适合照片
+PNG：
+
+有PNG8和truecolor PNG
+PNG8类似GIF颜色上限为256，文件小，支持alpha透明度，无动画
+适合图标、背景、按钮
