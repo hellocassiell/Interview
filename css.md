@@ -1,3 +1,6 @@
+## css性能优化
+- 嵌套层级不要超过3级
+
 ## 盒模型
 在标准模式下，一个块的总宽度=width+margin(左右)+padding(左右)+border(左右)
 在怪异模式下，一个块的总宽度=width+margin（左右）（既width已经包含了padding和border值）
