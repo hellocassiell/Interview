@@ -96,3 +96,12 @@ PNG8类似GIF颜色上限为256，文件小，支持alpha透明度，无动画
 
 ## 什么是FOUC?如何避免
 Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默认样式显示文档，用户样式加载渲染之后再从新显示文档，造成页面闪烁。解决方法：把样式表放到文档的head
+
+## 外边距折叠(collapsing margins)
+毗邻的两个或多个margin会合并成一个margin，叫做外边距折叠。规则如下：
+
+两个或多个毗邻的普通流中的块元素垂直方向上的margin会折叠
+浮动元素/inline-block元素/绝对定位元素的margin不会和垂直方向上的其他元素的margin折叠
+创建了块级格式化上下文的元素，不会和它的子元素发生margin折叠
+元素自身的margin-bottom和margin-top相邻时也会折叠
+如何确定一个元素的包含块(containing block)
