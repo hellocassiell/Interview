@@ -105,16 +105,3 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
 3.创建了块级格式化上下文的元素，不会和它的子元素发生margin折叠
 4.元素自身的margin-bottom和margin-top相邻时也会折叠
 
-## 如何确定一个元素的包含块(containing block)
-1.根元素的包含块叫做初始包含块，在连续媒体中他的尺寸与viewport相同并且anchored at the canvas origin；对于paged media，它的尺寸等于page area。初始包含块的direction属性与根元素相同。
-
-2.position为relative或者static的元素，它的包含块由最近的块级（display为block,list-item, table）祖先元素的内容框组成
-
-3.如果元素position为fixed。对于连续媒体，它的包含块为viewport；对于paged media，包含块为page area
-
-4.如果元素position为absolute，它的包含块由祖先元素中最近一个position为relative,absolute或者fixed的元素产生，规则如下：
-
-- 如果祖先元素为行内元素，the containing block is the bounding box around the padding boxes of the first and the last inline boxes generated for that element.
-- 其他情况下包含块由祖先节点的padding edge组成
-
-如果找不到定位的祖先元素，包含块为初始包含块
