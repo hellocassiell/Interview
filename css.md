@@ -105,9 +105,3 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
 3.创建了块级格式化上下文的元素，不会和它的子元素发生margin折叠
 4.元素自身的margin-bottom和margin-top相邻时也会折叠
 
-## 强调标签
-
-
-## <img>的title和alt有什么区别
-1. title是global attributes之一，用于为元素提供附加的advisory information。通常当鼠标滑动到元素上的时候显示。
-2. alt是<img>的特有属性，是图片内容的等价描述，用于图片无法加载时显示、读屏器阅读图片。可提图片高可访问性，除了纯装饰图片外都必须设置有意义的值，搜索引擎会重点分析。
