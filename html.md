@@ -1,3 +1,10 @@
+## 常用浏览器及其内核
+IE  trident
+Firefox  gekco
+Safari  webkit
+Opera  blink 
+Chrome  blink
+
 ## 什么是web语义化,有什么好处
 web语义化是指**通过HTML标记表示页面包含的信息**，包含了**HTML标签的语义化**和**css命名的语义化**。 
 HTML标签的语义化是指：通过使用包含语义的标签（如h1-h6）恰当地表示文档结构 
