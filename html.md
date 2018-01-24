@@ -19,7 +19,7 @@ css命名的语义化是指：为html标签添加有意义的class，id补充未
 ## 浏览器的标准模式和怪异模式
 HTML文档的头部会有文档类型声明：DOCTYPE。当浏览器遇到正确的文档声明时，浏览器就会启动标准模式。
 请确定你把 DOCTYPE 正确地放在 HTML 文件的顶端。任何放在 DOCTYPE 前面的东西，比如批注或 XML 声明，会令 Internet Explorer 9 或更早期的浏览器触发怪异模式。
-#### 如何判定现在是标准模式还是怪异模式
+  #### 如何判定现在是标准模式还是怪异模式
 
 方法一：执行以下代码
 alert(window.top.document.compatMode) ;
@@ -30,12 +30,12 @@ alert(window.top.document.compatMode) ;
 alert($.boxModel)
 alert($.support.boxModel)
 
-#### 如何设置为怪异模式
+  #### 如何设置为怪异模式
 
 方法一：在页面项部加 <!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN”>
 方法二：什么也不加。
 
-#### 如何设置为标准模式
+  #### 如何设置为标准模式
 
 加入以下任意一种：HTML4提供了三种DOCTYPE可选择：
 <!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN” “http://www.w3.org/TR/html4/loose.dtd”>
@@ -54,7 +54,7 @@ XHTML1.0提供了三种DOCTYPE可选择：
 
 (3)框架型（Frameset ）
 <!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Frameset//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd”>
-#### 标准模式与怪异模式的常见区别
+  #### 标准模式与怪异模式的常见区别
 1. 盒模型的处理差异：
 标准CSS盒模型的宽度和高度等于内容区的高度和宽度，不包含内边距和边框，而IE6之前的浏览器实现的盒模型的宽高计算方式是包含内边距和边框的。
 2. 行内元素的垂直对齐：
@@ -72,6 +72,9 @@ Quirks Mode 下，对于 table 元素，字体的某些属性将不会从 body �
 在 Standard Mode 下，overflow 取默认值 visible，即溢出可见，这种情况下，溢出内容不会被裁剪，呈现在元素框外。而在 Quirks Mode 下，该溢出被当做扩展 box 来对待，即元素的大小由其内容决定，溢出不会被裁剪，元素框自动调整，包含溢出内容。
 
 7.  使用margin:0 auto在standards模式下可以使元素水平居中，但在quirks模式下却会失效。
+
+
+
 
 ## XHTML 与 HTML 之间的差异
 XHTML 是更严谨更纯净的 HTML 版本。
