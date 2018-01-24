@@ -19,21 +19,55 @@ css命名的语义化是指：为html标签添加有意义的class，id补充未
 ## 浏览器的标准模式和怪异模式
 HTML文档的头部会有文档类型声明：DOCTYPE。当浏览器遇到正确的文档声明时，浏览器就会启动标准模式。
 请确定你把 DOCTYPE 正确地放在 HTML 文件的顶端。任何放在 DOCTYPE 前面的东西，比如批注或 XML 声明，会令 Internet Explorer 9 或更早期的浏览器触发怪异模式。
+#### 如何判定现在是标准模式还是怪异模式
+
+方法一：执行以下代码
+alert(window.top.document.compatMode) ;
+//BackCompat  表示怪异模式
+//CSS1Compat  表示标准模式
+
+方法二：jquery为我们提供的方法，如下：
+alert($.boxModel)
+alert($.support.boxModel)
+
+#### 如何设置为怪异模式
+
+方法一：在页面项部加 <!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN”>
+方法二：什么也不加。
+
+#### 如何设置为标准模式
+
+加入以下任意一种：HTML4提供了三种DOCTYPE可选择：
+<!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN” “http://www.w3.org/TR/html4/loose.dtd”>
+
+<!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01//EN” “http://www.w3.org/TR/html4/strict.dtd”>
+
+<!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Frameset//EN” “http://www.w3.org/TR/html4/frameset.dtd”>
+
+XHTML1.0提供了三种DOCTYPE可选择：
+
+(1)过渡型（Transitional ）
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>
+
+(2)严格型（Strict ）
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd”>
+
+(3)框架型（Frameset ）
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Frameset//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd”>
 #### 标准模式与怪异模式的常见区别
 1. 盒模型的处理差异：
-标准CSS盒模型的宽度和高度等于内容区的高度和宽度，不包含内边距和边框，而IE6之前的浏览器实现的盒模型的宽高计算方式是包含内边距和边框的。因此，对于IE，怪异模式和标准模式下的盒模型宽高计算方式是不一样的；
+标准CSS盒模型的宽度和高度等于内容区的高度和宽度，不包含内边距和边框，而IE6之前的浏览器实现的盒模型的宽高计算方式是包含内边距和边框的。
 2. 行内元素的垂直对齐：
 很多早期的浏览器对齐图片至包含它们的盒子的下边框，虽然CSS的规范要求它们被对齐至盒内文本的基线。标准模式下，基于Gecko的浏览器将会对齐至基线，而在quirks模式下它们会对齐至底部。最直接的例子就是图片的显示。在标准模式下，图片并不是与父元素的下边框对齐的，如果仔细观察，你会发现图片与父元素下边框之间存在一点小空隙。那是因为标准模式下，图片是基线对齐的。而怪异模式下，则不存在这个问题。
-<table>元素中的字体：
+3. <table>元素中的字体：
 Quirks Mode 下，对于 table 元素，字体的某些属性将不会从 body 或其他封闭元素继承到 table 中，特别是 font-size 属性。
-内联元素的尺寸：
-在 Standards Mode 下，non-replaced inline 元素无法自定义大小，而在 Quirks Mode 下，定义这些元素的 width 和 height 属性，能够影响该元素显示的大小尺寸。
-
-3. 元素的百分比高度：
+4. 行内元素的高宽：
+在Standards模式下，给<span>等行内元素设置wdith和height都不会生效，而在quirks模式下，则会生效。
+5. 元素的百分比高度：
 当一个元素使用百分比高度时，在 Standards Mode 下，高度取决于内容的变化，而在 Quirks Mode 下，百分比高度则被正确应用。
-元素溢出的处理：
+6. 元素溢出的处理：
 在 Standard Mode 下，overflow 取默认值 visible，即溢出可见，这种情况下，溢出内容不会被裁剪，呈现在元素框外。而在 Quirks Mode 下，该溢出被当做扩展 box 来对待，即元素的大小由其内容决定，溢出不会被裁剪，元素框自动调整，包含溢出内容。
-
+7.  使用margin:0 auto在standards模式下可以使元素水平居中，但在quirks模式下却会失效。
 ## XHTML 与 HTML 之间的差异
 XHTML 是更严谨更纯净的 HTML 版本。
 - XHTML 元素必须被正确地嵌套。
