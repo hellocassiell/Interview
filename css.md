@@ -188,7 +188,7 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
 27     bottom: 0;
 28     }
 ```
-### 如何垂直居中一个<img>
+### 如何垂直居中一个\<img>\
 ```
 #container     //<img>的容器设置如下
 {
