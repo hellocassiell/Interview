@@ -39,4 +39,35 @@ JSON是一种轻量级的数据交换格式，ECMA的一个子集
 
 优点：轻量级、易于人的阅读和编写，便于机器（JavaScript）解析，支持复合数据类型（数组、对象、字符串、数字）
 
+## 下面这个ul，如何点击每一列的时候alert其index?（闭包）
+```
+<ul id=”test”>
+    <li>这是第一条</li>
+    <li>这是第二条</li>
+    <li>这是第三条</li>
+</ul>
+```
+
+```
+// 方法一：
+var lis=document.getElementById('2223').getElementsByTagName('li');
+for(var i=0;i<3;i++)
+{
+    lis[i].index=i;
+    lis[i].onclick=function(){
+        alert(this.index);
+    };
+}
  
+//方法二：
+var lis=document.getElementById('2223').getElementsByTagName('li');
+for(var i=0;i<3;i++)
+{
+    lis[i].index=i;
+    lis[i].onclick=(function(a){
+        return function() {
+            alert(a);
+        }
+    })(i);
+}
+```
