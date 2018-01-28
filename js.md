@@ -1,3 +1,8 @@
+对javascript核心概念的讲解：对象/原型链/ 构造函数/执行上下文/作用域链/闭包/this
+
+
+
+
 ## 原型链
 person - proto -> Person.prototype - proto -> Object.prototype - proto -> null
 
