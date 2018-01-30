@@ -32,6 +32,7 @@
 204 No Content：
 205 Reset Content：
 206 Partial Content：
+
 3XX：重定向
 300 Multiple Choices：
 301 Moved Permanently：
@@ -41,6 +42,7 @@
 305 Use Proxy：
 306 （unused）：
 307 Temporary Redirect：
+
 4XX：客户端错误
 400 Bad Request:
 401 Unauthorized:
@@ -60,6 +62,7 @@
 415 Unsupported Media Type:
 416 Requested Range Not Satisfiable:
 417 Expectation Failed:
+
 5XX: 服务器错误
 500 Internal Server Error:
 501 Not Implemented:

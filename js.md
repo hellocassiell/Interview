@@ -145,6 +145,19 @@ console.log(obj.name); // ll
 console.log(obj) // myClass {name: "ll"}
 
 ```
+但是如果构造函数中手动指定了return其它对象，那么this将不起作用。
+如果return的是别的数据类型，则没有问题。
+```
+var myClass = function() {
+  this.name = "ll";
+  // 加入return时，则返回的是别的对象。this不起作用。
+  return {
+    name:"ReturnOthers"
+  }
+};
+var obj = new myClass();
+console.log(obj.name); // ReturnOthers
+```
 4. apply和call调用
 ## call，apply，bind
 ## 显示原型和隐式原型，手绘原型链，原型链是什么？为什么要有原型链
