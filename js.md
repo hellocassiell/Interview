@@ -96,6 +96,56 @@ useCapture默认值为false 在事件冒泡阶段处理函数
 ## 事件委托（手写例子），事件冒泡和捕获，如何阻止冒泡？如何组织默认事件？
 ## 对闭包的理解？什么时候构成闭包？闭包的实现方法？闭包的优缺点？
 ## this有哪些使用场景？跟C,Java中的this有什么区别？如何改变this的值？
+1. 作为对象的方法调用
+this指向该对象
+```
+var obj = {
+  a: 1,
+  getA: function() {
+    console.log(this === obj);
+    console.log(this.a);
+  }
+};
+obj.getA(); // true , 1
+```
+2. 作为普通函数调用
+this总是指向全局对象(浏览器中是window)
+```
+/**
+ * 2.作为普通函数调用
+ *
+ * 不作为对象属性调用时,this必须指向一个对象。那就是全局对象。
+ */
+window.name = 'globalName';
+var getName = function() {
+  console.log(this.name);
+};
+getName(); // 'globalName'
+var myObject = {
+  name: "ObjectName",
+  getName: function() {
+    console.log(this.name)
+  }
+};
+myObject.getName(); // 'ObjectName'
+// 这里实质上是把function() {console.log(this.name)}
+// 这句话赋值给了theName。thisName在全局对象中调用，自然读取的是全局对象的name值
+var theName = myObject.getName;
+theName(); // 'globalName'
+```
+
+3. 构造器调用
+this指向返回的这个对象
+```
+var myClass = function() {
+  this.name = "ll";
+};
+var obj = new myClass();
+console.log(obj.name); // ll
+console.log(obj) // myClass {name: "ll"}
+
+```
+4. apply和call调用
 ## call，apply，bind
 ## 显示原型和隐式原型，手绘原型链，原型链是什么？为什么要有原型链
 ## 创建对象的多种方式
