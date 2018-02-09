@@ -165,4 +165,15 @@ console.log(obj.name); // ReturnOthers
 ## 实现继承的多种方式和优缺点
 ## new 一个对象具体做了什么
 ## 手写Ajax，XMLHttpRequest
+```
+var request = new XMLHttpRequest();
+request.open("GET","get.json",true);
+request.onreadystatechange = function () {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            //响应成功,做一些事情
+        } else {
+           //响应失败,做一些事情
+        }
+};
+```
 ## 变量提升
