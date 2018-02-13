@@ -165,15 +165,17 @@ console.log(obj.name); // ReturnOthers
 ## 实现继承的多种方式和优缺点
 ## new 一个对象具体做了什么
 ## 手写Ajax，XMLHttpRequest
+通过实例化一个XMLHttpRequest对象得到一个实例，调用实例的open方法为这次 ajax请求设定相应的http方法、相应的地址和以及是否异步，当然大多数情况下我们都是选异步， 以异步为例，之后调用send方法ajax请求，这个方法可以设定需要发送的报文主体，然后通过 监听readystatechange事件，通过这个实例的readyState属性来判断这个ajax请求的状态，其中分为0,1,2,3,4这四种 状态，当状态为4的时候也就是接收数据完成的时候，这时候可以通过实例的status属性判断这个请求是否成功
 ```
-var request = new XMLHttpRequest();
-request.open("GET","get.json",true);
-request.onreadystatechange = function () {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            //响应成功,做一些事情
-        } else {
-           //响应失败,做一些事情
-        }
-};
+var xhr = new XMLHttpRequest();
+xhr.open('get', 'aabb.php', true);
+xhr.send(null);
+xhr.onreadystatechange = function() {
+  if(xhr.readyState==4) {
+    if(xhr.status==200) {
+      console.log(xhr.responseText);
+    }
+  }
+}
 ```
 ## 变量提升
