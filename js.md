@@ -44,6 +44,9 @@ JSON是一种轻量级的数据交换格式，ECMA的一个子集
 
 优点：轻量级、易于人的阅读和编写，便于机器（JavaScript）解析，支持复合数据类型（数组、对象、字符串、数字）
 
+
+## 原生JS操作DOM的方法有哪些？
+获取节点的方法getElementById、getElementsByClassName、getElementsByTagName、 getElementsByName、querySelector、querySelectorAll,对元素属性进行操作的 getAttribute、 setAttribute、removeAttribute方法，对节点进行增删改的appendChild、insertBefore、replaceChild、removeChild、 createElement等
 ## 下面这个ul，如何点击每一列的时候alert其index?（闭包）
 ```
 <ul id=”test”>
