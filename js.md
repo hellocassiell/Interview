@@ -93,6 +93,11 @@ for(var i=0;i<3;i++)
 addEventListener(event, function, useCapture)
 useCapture默认值为false 在事件冒泡阶段处理函数
 若为true 则在事件捕获阶段处理函数
+
+## typeof操作符返回值有哪些，对undefined、null、NaN使用这个操作符分别返回什么
+typeof的返回值有undefined、boolean、string、number、object、function、symbol。对undefined 使用返回undefined、null使用返回object，NaN使用返回number
+
+
 ## 事件委托（手写例子），事件冒泡和捕获，如何阻止冒泡？如何组织默认事件？
 ## 对闭包的理解？什么时候构成闭包？闭包的实现方法？闭包的优缺点？
 ## this有哪些使用场景？跟C,Java中的this有什么区别？如何改变this的值？
