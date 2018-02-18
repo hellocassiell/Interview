@@ -133,6 +133,10 @@ graceful degradation：一开始就构建完整的功能，然后再针对低版
 - keywords  用于告诉搜索引擎，你网页的关键字
 - description  用于告诉搜索引擎，你网站的主要内容
 - viewport  移动端的窗口
+> viewport常常使用在响应式开发以及移动web开发中，viewport顾名思义就是用来设置视口，主要是规定视口的宽度、视口的初始缩放值、 视口的最小缩放值、视口的最大缩放值、是否允许用户缩放等。一个常见的viewport设置如下：
+
+```<meta name="viewport"  content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width" />```
+其中同时设置width和initial-scale的目的是为了解决iphone、ipad、ie横竖屏不分的情况，因为这两个值同时存在时会取较大值。
 -  robots  定义搜索引擎爬虫的索引方式
 - author  作者
 -  generator 网页制作软件
