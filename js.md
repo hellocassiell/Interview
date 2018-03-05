@@ -6,11 +6,68 @@
 ## 原型链
 person - proto -> Person.prototype - proto -> Object.prototype - proto -> null
 
-## JavaScript的数据类型都有什么？
+## javascript做类型判断的方法有哪些？
+共定义了 7 种数据类型，分为 基本类型 和 引用类型 两大类：
+基本类型：String、Number、Boolean、Symbol、Undefined、Null 
+占据空间固定，是简单的数据段，为了便于提升变量查询速度，将其存储在栈中，即按值访问
+引用类型：Object
+其值存储在堆(heap)中，而存储在变量处的值，是一个指针，指向存储对象的内存处，即按址访问
+1. typeof
+```
+typeof ''; // string 有效
+typeof 1; // number 有效
+typeof Symbol(); // symbol 有效
+typeof true; //boolean 有效
+typeof undefined; //undefined 有效
+typeof null; //object 无效
+typeof [] ; //object 无效
+typeof new Function(); // function 有效
+typeof new Date(); //object 无效
+typeof new RegExp(); //object 无效
+```
+- 对于基本类型，除 null 以外，均可以返回正确的结果。对于 null ，返回 object 类型。
+- 对于引用类型，除 function 以外，一律返回 object 类型。
+- 在实际的项目应用中，typeof只有两个用途，就是检测一个元素是否为undefined，或者是否为function。
+> null 有属于自己的数据类型 Null ， 引用类型中的 数组、日期、正则 也都有属于自己的具体类型，而 typeof 对于这些类型的处理，只返回了处于其原型链最顶端的 Object 类型，没有错，但不是我们想要的结果。
+2. instanceof 
 
-基本数据类型：String,Boolean,Number,Undefined, Null
+A instanceof B，如果 A 是 B 的实例，则返回 true,否则返回 false。
+**instanceof 检测的是原型**
+instanceof 只能用来判断两个对象是否属于实例关系， 而不能判断一个对象实例**具体**属于哪种类型。
+例：instanceof 能够判断出 [ ] 是Array的实例，且它认为 [ ] 也是Object的实例，因为存在一条这样的原型链
 
-引用数据类型：Object(Array,Date,RegExp,Function)
+> instanceof 操作符的问题在于，它假定只有一个全局执行环境。如果网页中包含多个框架，那实际上就存在两个以上不同的全局执行环境，从而存在两个以上不同版本的构造函数。如果你从一个框架向另一个框架传入一个数组，那么传入的数组与在第二个框架中原生创建的数组分别具有各自不同的构造函数。
+```
+var iframe = document.createElement('iframe');
+document.body.appendChild(iframe);
+xArray = window.frames[0].Array;
+var arr = new xArray(1,2,3); // [1,2,3]
+arr instanceof Array; // false
+```
+针对数组的这个问题，ES5 提供了 Array.isArray() 方法 。该方法用以确认某个对象本身是否为 Array 类型，而不区分该对象在哪个环境中创建。
+Array.isArray() 本质上检测的是对象的 [[Class]] 值，[[Class]] 是对象的一个内部属性，里面包含了对象的类型信息，其格式为 [object Xxx] ，Xxx 就是对应的具体类型 。对于数组而言，[[Class]] 的值就是 [object Array] 。
+
+3. Object.prototype.toString()
+
+toString() 是 Object 的原型方法，调用该方法，默认返回当前对象的 [[Class]] 。这是一个内部属性，其格式为 [object Xxx] ，其中 Xxx 就是对象的类型。
+
+对于 Object 对象，直接调用 toString()  就能返回 [object Object] 。而对于其他对象，则需要通过 call / apply 来调用才能返回正确的类型信息。
+```
+Object.prototype.toString.call('') ;   // [object String]
+Object.prototype.toString.call(1) ;    // [object Number]
+Object.prototype.toString.call(true) ; // [object Boolean]
+Object.prototype.toString.call(Symbol()); //[object Symbol]
+Object.prototype.toString.call(undefined) ; // [object Undefined]
+Object.prototype.toString.call(null) ; // [object Null]
+Object.prototype.toString.call(new Function()) ; // [object Function]
+Object.prototype.toString.call(new Date()) ; // [object Date]
+Object.prototype.toString.call([]) ; // [object Array]
+Object.prototype.toString.call(new RegExp()) ; // [object RegExp]
+Object.prototype.toString.call(new Error()) ; // [object Error]
+Object.prototype.toString.call(document) ; // [object HTMLDocument]
+Object.prototype.toString.call(window) ; //[object global] window是全局对象 global 的引用
+```
+
 
 ## 如何判断某变量是否为数组数据类型
 - 方法一.判断其是否具有“数组性质”，如slice()方法。可自己给该变量定义slice方法，故有时会失效
