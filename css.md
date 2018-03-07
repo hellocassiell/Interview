@@ -274,11 +274,4 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
 28     }
 ```
 ### 如何垂直居中一个\<img>
-```
-#container     //<img>的容器设置如下
-{
-    display:table-cell;
-    text-align:center;
-    vertical-align:middle;
-}
-```
+只需设置父元素  display: table-cell; vertical-align: middle;即可
