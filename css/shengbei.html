@@ -1,0 +1,58 @@
+<!-- 
+圣杯布局
+1.将三者都 float:left , 再加上一个position:relative
+2.middle部分 width:100%占满
+3.此时middle占满了，所以要把left拉到最左边，使用margin-left:-100%，
+把right拉到最右边，把margin-left设为负的right的宽度
+4.但会覆盖middle内容，所以设container左右padding各为left和right的宽度
+5.middle内容拉回来了，但left也跟着过来了，所以要还原，就对left使用相对定位 left:-200px 
+同理，right也要相对定位还原 right:-200px
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            padding: 0 200px;
+        }
+        .middle,
+        .left,
+        .right {
+            float: left;
+            position: relative;
+        }
+        .middle {
+            width: 100%;
+            height: 200px;
+            background-color: paleturquoise;
+            
+        }
+        .left {
+            width: 200px;
+            height: 200px;
+            background-color:  pink;
+            margin-left: -100%;
+            left: -200px;
+        }
+        .right {
+            width: 200px;
+            height: 200px;
+            background-color:  palegreen;
+            margin-left: -200px;
+            right: -200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="middle">hhhhhhhhhhh</div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+</body>
+</html>
