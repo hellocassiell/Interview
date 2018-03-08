@@ -231,10 +231,7 @@ Flash Of Unstyled Content：用户定义样式表加载之前浏览器使用默�
 
 ## rgba()和opacity的透明效果有什么不同？
 
-　rgba()和opacity都能实现透明效果，但最大的不同是opacity作用于元素，以及元素内的所有内容的透明度，
-
-　而rgba()只作用于元素的颜色或其背景色
-
+　opacity会继承父元素的 opacity 属性，而RGBA设置的元素的后代元素不会继承不透明属性。
 ## css中可以让文字在垂直和水平方向上重叠的两个属性是什么？
 
 　垂直方向：line-height
